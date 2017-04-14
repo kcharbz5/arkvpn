@@ -1,0 +1,8 @@
+httplib2==0.9.1
+ipaddress==1.0.16
+Jinja2==2.8
+netifaces
+requests==2.13.0
+pyutilib.subprocess
+urllib3==1.13.1
+virtualenv==15.1.0
