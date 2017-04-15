@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /home/sanchez/projects/openvpn_checker/ve/bin/python /home/sanchez/projects/openvpn_checker/ve/lib/python2.7/site-packages/PyQt4/uic/pyuic.py ${1+"$@"}
