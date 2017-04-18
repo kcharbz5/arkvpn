@@ -9,6 +9,8 @@ class Widget(QtGui.QWidget):
     def __init__(self):
         super(Widget, self).__init__()
         self.light = False
+        self.build_ui()
+        """self.light = False
         self.setGeometry(0, 0, 400, 400)
         self.setWindowTitle("Main page")
 
@@ -23,7 +25,35 @@ class Widget(QtGui.QWidget):
         button = QtGui.QPushButton("Button", self)
         button.setGeometry(200, 200, 80, 20)
         button.clicked.connect(self.switch_light)
+        self.show()"""
+
+    def build_ui(self):
+        self.pic = QtGui.QLabel(self)
+        self.pic.setPixmap(QtGui.QPixmap(constant.IMG_DIR + "off-m.png"))
+        okButton = QtGui.QPushButton("OK")
+        okButton.clicked.connect(self.switch_light)
+        cancelButton = QtGui.QPushButton("Cancel")
+        cancelButton.clicked.connect(self.close)
+
+        grid = QtGui.QGridLayout()
+        grid.addWidget(self.pic, 1, 0)
+
+        hbox = QtGui.QHBoxLayout()
+        #hbox.addStretch(1)
+        hbox.addWidget(okButton)
+        hbox.addWidget(cancelButton)
+
+        vbox = QtGui.QVBoxLayout()
+        #vbox.addStretch(1)
+        vbox.addLayout(grid)
+        vbox.addLayout(hbox)
+
+        self.setLayout(vbox)
+
+        self.setGeometry(300, 300, 300, 150)
+        self.setWindowTitle('Ark VPN')
         self.show()
+
 
     # Turns the light on and off
     def switch_light(self):
